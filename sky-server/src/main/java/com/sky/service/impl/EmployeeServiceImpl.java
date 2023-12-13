@@ -81,7 +81,7 @@ public class EmployeeServiceImpl implements EmployeeService {
         //设置账户状态,默认 为1正常,0为异常
         employee.setStatus(StatusConstant.ENABLE);
 
-        //设置密码,默认123456
+        //设置密码,默认123456,并且md5加密
         employee.setPassword(DigestUtils.md5DigestAsHex(PasswordConstant.DEFAULT_PASSWORD.getBytes()));
 
         //设置当前创建时间和修改时间
