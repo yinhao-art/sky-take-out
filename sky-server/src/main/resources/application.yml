@@ -18,9 +18,6 @@ spring:
     password: ${sky.redis.password}
     datebase: ${sky.redis.datebase}
 
-
-
-
 mybatis:
   #mapper配置文件
   mapper-locations: classpath:mapper/*.xml
@@ -45,9 +42,16 @@ sky:
     admin-ttl: 7200000
     # 设置前端传递过来的令牌名称
     admin-token-name: token
+    # 用户端
+    user-secret-key: itheima
+    user-ttl: 7200000
+    user-token-name: authentication
   #阿里云oss配置
   alioss:
     endpoint: ${sky.alioss.endpoint}
     access-key-id: ${sky.alioss.access-key-id}
     access-key-secret: ${sky.alioss.access-key-secret}
     bucket-name: ${sky.alioss.bucket-name}
+  wechat:
+    appid: ${sky.wechat.appid}
+    secret: ${sky.wechat.secret}
