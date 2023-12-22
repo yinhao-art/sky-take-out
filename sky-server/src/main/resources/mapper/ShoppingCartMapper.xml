@@ -5,26 +5,42 @@
 
 
     <select id="list" resultType="com.sky.entity.ShoppingCart">
-    select  * from  shopping_cart
-    <where>
-        <if test="userId!= null">
-            and user_id=#{userId}
-        </if>
-        <if test="setmealId!= null">
-            and setmeal_id=#{setmealId}
-        </if>
-        <if test="dishId!= null">
-            and dish_id=#{dishId}
-        </if>
-        <if test="dishFlavor != null">
-            and dish_flavor=#{dishFlavor}
-        </if>
+        select * from shopping_cart
+        <where>
+            <if test="userId!= null">
+                and user_id=#{userId}
+            </if>
+            <if test="setmealId!= null">
+                and setmeal_id=#{setmealId}
+            </if>
+            <if test="dishId!= null">
+                and dish_id=#{dishId}
+            </if>
+            <if test="dishFlavor != null">
+                and dish_flavor=#{dishFlavor}
+            </if>
+
+        </where>
+    </select>
 
 
+    <delete id="subAll">
+        DELETE FROM shopping_cart
+        <where>
+            <if test="shoppingCartDTO.dishId != null">AND dish_id = #{shoppingCartDTO.dishId}</if>
+            <if test="shoppingCartDTO.setmealId != null">AND setmeal_id = #{shoppingCartDTO.setmealId}</if>
+            <if test="shoppingCartDTO.dishFlavor != null">AND dish_flavor = #{shoppingCartDTO.dishFlavor}</if>
+            AND user_id = #{currentId}
+        </where>
+    </delete>
 
-
-
-    </where>
-
+    <select id="find" resultType="com.sky.entity.ShoppingCart">
+        SELECT * FROM shopping_cart
+        <where>
+            <if test="dishId != null">AND dish_id = #{dishId}</if>
+            <if test="setmealId != null">AND setmeal_id = #{setmealId}</if>
+            <if test="dishFlavor != null">AND dish_flavor = #{dishFlavor}</if>
+            AND user_id = #{userId}
+        </where>
     </select>
 </mapper>
