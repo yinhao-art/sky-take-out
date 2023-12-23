@@ -43,7 +43,7 @@ public class UserServiceImpl implements UserService {
         map.put("grant_type","authorization_code");
 
         String json = HttpClientUtil.doGet(WX_LOGIN, map);
-
+        log.info(json);
         JSONObject jsonObject = JSON.parseObject(json);
         String openid = jsonObject.getString("openid");
 

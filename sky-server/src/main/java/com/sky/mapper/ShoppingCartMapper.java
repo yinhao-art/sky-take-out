@@ -46,4 +46,11 @@ public interface ShoppingCartMapper {
 
     @Update("UPDATE shopping_cart SET number=#{number} WHERE id=#{id}")
     void changeNumber(ShoppingCart shoppingCart);
+
+    /**
+     * 批量插入购物车数据
+     *
+     * @param shoppingCartList
+     */
+    void insertBatch(List<ShoppingCart> shoppingCartList);
 }
