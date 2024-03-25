@@ -546,6 +546,28 @@ public class OrderServiceImpl implements OrderService {
     }
 
 
+    /**
+     * 客户催单
+     * @param id
+     */
+    public void reminder(Long id) {
+        // 根据id查询订单
+        Orders ordersDB = orderMapper.getById(id);
+
+        // 校验订单是否存在，并且状态为4
+        if (ordersDB == null ) {
+            throw new OrderBusinessException(MessageConstant.ORDER_STATUS_ERROR);
+        }
+        Map map=new HashMap();
+        map.put("type",2);//2.表示催单
+        map.put("orderid",id);
+        map.put("content","订单号: "+ordersDB.getNumber());
+
+        String json = JSON.toJSONString(map);
+        webSocketServer.sendToAllClient(json);
+
+
+    }
 
     /**
      * 检查客户的收货地址是否超出配送范围
