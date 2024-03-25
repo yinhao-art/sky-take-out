@@ -8,8 +8,8 @@ sky:
     password: 123456
   alioss:
     endpoint: oss-cn-chengdu.aliyuncs.com
-    access-key-id:
-    access-key-secret:
+    access-key-id: LTAI5tKcrhjGyZ6vfn9ccYyh
+    access-key-secret: 0aTcgONqJVEYSJCDXtDeDOFXXAC6BE
     bucket-name: sky-yinhao
   redis:
     host: localhost
@@ -19,3 +19,10 @@ sky:
   wechat:
     appid: wxbf296758f58fb8dc
     secret: 358dbc1a9d40e3250b0245e0697cfe94
+    mchid: 1
+    we-chat-pay-cert-file-path:
+    notify-url:
+    refund-notify-url:
+    api-v3-key:
+    mch-serial-no:
+    private-key-file-path:
